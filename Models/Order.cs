@@ -12,9 +12,7 @@ namespace web_api.Models
         public DateTime OrderDate { get; set; }
         public int USerID { get; set; }
         [JsonIgnore]
-
         public virtual User User { get; set; }
-
         public virtual List<Product> Products { get; set; }
 
     }
