@@ -29,7 +29,8 @@ namespace web_api
         {
             services.AddDbContext<ShopContext>(options =>
                 options.UseInMemoryDatabase("Shop"));
-            services.AddControllers();
+            services.AddControllers().
+                ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
 
         }
 

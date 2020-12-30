@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "5jHNwhUt8Oba1U5De5YjK/2LDGkCYs7eCVf8SWHd2b601i9zaDm7veMylW63wQc+nwGFAUzvuplx4m9pzlPTnA==",
+  "dgSpecHash": "pnkHcErti6+Oy/MMRlGVDlLhs0cRs+gv5RSbmMkxnLuz6nC0c+draUsqzpnk2iwaj5KvFWHYU78w6zUTavYqOg==",
   "success": true,
   "projectFilePath": "C:\\Users\\conne\\source\\repos\\web-api\\web-api\\web-api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\conne\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\4.2.0\\microsoft.aspnetcore.mvc.versioning.4.2.0.nupkg.sha512",
+    "C:\\Users\\conne\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning.apiexplorer\\4.2.0\\microsoft.aspnetcore.mvc.versioning.apiexplorer.4.2.0.nupkg.sha512",
     "C:\\Users\\conne\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.1\\microsoft.entityframeworkcore.5.0.1.nupkg.sha512",
     "C:\\Users\\conne\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.1\\microsoft.entityframeworkcore.abstractions.5.0.1.nupkg.sha512",
     "C:\\Users\\conne\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.1\\microsoft.entityframeworkcore.analyzers.5.0.1.nupkg.sha512",

@@ -7,6 +7,7 @@ using web_api.Models;
 
 namespace web_api.Controllers
 {
+    [Route("[controller]")]
     public class ProductController : Controller
     {
         private readonly ShopContext _context;
@@ -36,7 +37,6 @@ namespace web_api.Controllers
         // pagination example
         // https://exapmle.com/products?size=10&page=2
 
-        [Route("[controller]")]
         [HttpGet]
         public async Task<IActionResult> GetAllProducts([FromQuery] ProductQueryParameters queryParameters)
         {
@@ -86,8 +86,8 @@ namespace web_api.Controllers
         //}
         //------------------------------------------------------------------------
 
-        [HttpGet, Route("/product/{id:int}")]
-        public async Task <IActionResult> GetProductById(int id)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductById(int id)
         {
             var product = await _context.Products.FindAsync(id);
             if (product == null)
@@ -99,5 +99,46 @@ namespace web_api.Controllers
         }
         //------------------------------------------------------------------------
 
+        [HttpPost]
+        public async Task<IActionResult> AddProduct([FromBody] Product product)
+        {
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction("GetProductById", new { id = product.Id }, product);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Product>> UpdateProduct(int id ,[FromBody] Product product)
+        {
+            if (id != product.Id)
+            {
+                return BadRequest();
+            }
+            _context.Entry(product).State = EntityState.Modified;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (_context.Products.Find(id) == null)
+                {
+                    return NotFound("message: This product does not exist");
+                }
+                throw;
+            }
+            //  return Ok("message : Product has been Updated");
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Product>> DeleteProduct(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return NotFound();
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return product;
+        }
     }
 }
