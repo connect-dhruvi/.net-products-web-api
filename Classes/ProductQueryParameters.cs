@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace web_api.Classes
+﻿namespace web_api.Classes
 {
     public class ProductQueryParameters : QueryParameters
     {
@@ -11,6 +6,6 @@ namespace web_api.Classes
 
         public decimal? MinPrice { get; set; }
         public decimal? MaxPrice { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; }
     }
 }

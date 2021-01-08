@@ -22,6 +22,5 @@ namespace web_api.Models
 
             return items.Provider.CreateQuery<TEntity>(result);
         }
-
     }
 }
